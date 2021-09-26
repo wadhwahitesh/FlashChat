@@ -7,16 +7,23 @@
 //
 
 import UIKit
-
+import CLTypingLabel
 class WelcomeViewController: UIViewController {
 
-    @IBOutlet weak var titleLabel: UILabel!
-    
+    @IBOutlet weak var titleLabel: CLTypingLabel!
+    var titleText=K.appName
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden=true
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       
+        titleLabel.text=titleText
+        
     }
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.isNavigationBarHidden=false
+    }
 
 }
